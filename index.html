@@ -183,6 +183,13 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
 .menu-btn{ display:none; }
 
 @media (max-width: 920px){
+  .nav{
+    background:rgba(10,10,10,.94);
+    border-bottom-color:var(--line);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+  }
+  .nav-inner{ padding-block:.65rem; }
   .menu-btn{
     display:inline-flex; align-items:center;
     background:none; border:1px solid var(--gold-line); border-radius:999px;
@@ -249,7 +256,6 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
   .par-inner{ top:0; height:100%; transform:none !important; }
   .kb-zoom{ animation:none; transform:none !important; }
 }
-.no-motion .hero-slide{ transition:none; }
 
 /* ------------------------------------------------ hero */
 .hero{
@@ -259,8 +265,12 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
   min-height:var(--hero-height, 100svh);
   display:flex; align-items:flex-end;
   isolation:isolate;
+  overflow:hidden;
 }
 .hero .par-wrap{ z-index:-2; }
+@media (max-width: 920px){
+  .hero .par-wrap{ bottom:auto; height:100vh; height:100lvh; }
+}
 .hero .scrim{
   position:absolute; inset:0; z-index:-1;
   background:
@@ -1171,12 +1181,16 @@ if (!REDUCED && !COARSE_POINTER){
 }
 
 /* Keep the full-height hero stable when mobile browser chrome or orientation changes. */
-function sizeHero(){
+let heroViewportWidth = window.innerWidth;
+function sizeHero(force){
+  const widthChanged = Math.abs(window.innerWidth - heroViewportWidth) > 40;
+  if (!force && !widthChanged) return;
+  heroViewportWidth = window.innerWidth;
   document.documentElement.style.setProperty('--hero-height', window.innerHeight + 'px');
 }
-window.addEventListener('resize', sizeHero, { passive:true });
-window.addEventListener('orientationchange', sizeHero);
-sizeHero();
+window.addEventListener('resize', () => sizeHero(false), { passive:true });
+window.addEventListener('orientationchange', () => window.setTimeout(() => sizeHero(true), 250));
+sizeHero(true);
 
 /* ---------------------------------------------- hero crossfade */
 const slides = Array.from(document.querySelectorAll('.hero-slide'));
@@ -1195,11 +1209,11 @@ function stopHero(){
 
 function queueHero(){
   stopHero();
-  if (slides.length < 2 || REDUCED || document.hidden) return;
+  if (slides.length < 2 || document.hidden) return;
   heroTimer = window.setTimeout(() => {
     showHero(heroIndex + 1);
     queueHero();
-  }, 12200); /* 3.2-second fade plus a 9-second hold */
+  }, 8000); /* begin each portrait transition after an eight-second hold */
 }
 
 function heroImageReady(img){
