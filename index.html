@@ -248,20 +248,42 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
           mask-image:linear-gradient(to right, transparent, #000 22%, #000 78%, transparent);
 }
 .legacy-safari .hero-slide{
-  transition-duration:2.8s;
+  transition-duration:3.2s;
   transition-timing-function:linear;
+  will-change:auto;
+  -webkit-backface-visibility:visible;
+          backface-visibility:visible;
+  transform:none;
 }
 .legacy-safari .hero-slide .hs-bg{ display:none; }
 .legacy-safari .hero-slide .hs-main{
-  -webkit-backface-visibility:hidden;
-          backface-visibility:hidden;
-  transform:translate3d(-50%, 0, 0);
+  -webkit-mask-image:none;
+          mask-image:none;
+  -webkit-backface-visibility:visible;
+          backface-visibility:visible;
+  transform:translateX(-50%);
+}
+.legacy-safari .kb-zoom{ animation:none; transform:none; }
+.legacy-safari .hero .par-inner::after{
+  content:"";
+  position:absolute; inset:0; z-index:3;
+  background:
+    linear-gradient(to right, #0a0a0a 0%, #0a0a0a 26%, transparent 45%, transparent 55%, #0a0a0a 74%, #0a0a0a 100%),
+    linear-gradient(to bottom, transparent 58%, #0a0a0a 100%);
+  pointer-events:none;
 }
 /* The monochrome portrait is framed more tightly in its source file. */
 .hero-slide:nth-child(2) .hs-main{ top:calc(7% + 1rem); height:88%; }
 @media (max-width: 900px){
   .hero-slide .hs-main{ top:1.25rem; height:78%; }
   .hero-slide:nth-child(2) .hs-main{ top:calc(6% + 1.25rem); height:68%; }
+  .hero-slide:nth-child(2) .hs-bg{
+    filter:blur(22px) brightness(.34) saturate(.65);
+    transform:scale(1.08);
+    object-position:center 32%;
+    -webkit-mask-image:linear-gradient(to bottom, #000 0%, #000 66%, transparent 100%);
+            mask-image:linear-gradient(to bottom, #000 0%, #000 66%, transparent 100%);
+  }
   .hero-slide::after{
     content:"";
     position:absolute; inset:0 0 auto; z-index:2;
