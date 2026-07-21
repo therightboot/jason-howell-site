@@ -272,11 +272,11 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
     linear-gradient(to bottom, transparent 58%, #0a0a0a 100%);
   pointer-events:none;
 }
-/* The monochrome portrait is framed more tightly in its source file. */
-.hero-slide:nth-child(2) .hs-main{ top:calc(7% + 1rem); height:88%; }
+/* Use the extended canvas to match the monochrome head size and eye line. */
+.hero-slide:nth-child(2) .hs-main{ top:calc(-21.5% + 1rem); height:146%; }
 @media (max-width: 900px){
   .hero-slide .hs-main{ top:1.25rem; height:78%; }
-  .hero-slide:nth-child(2) .hs-main{ top:calc(6% + 1.25rem); height:68%; }
+  .hero-slide:nth-child(2) .hs-main{ top:calc(-16% + 1.25rem); height:114%; }
   .hero-slide:nth-child(2) .hs-bg{
     filter:blur(52px) brightness(.78) saturate(0);
     transform:scale(1.26);
@@ -856,8 +856,8 @@ a:focus-visible, button:focus-visible{
           <img class="hs-main" src="assets/img/hero-1.jpg" alt="Jason Howell — portrait" fetchpriority="high">
         </div>
         <div class="hero-slide">
-          <img class="hs-bg" src="assets/img/hero-2.jpg" alt="" aria-hidden="true">
-          <img class="hs-main" src="assets/img/hero-2.jpg" alt="Jason Howell — portrait">
+          <img class="hs-bg" src="assets/img/hero-2-extended-narrow.jpg" alt="" aria-hidden="true">
+          <img class="hs-main" src="assets/img/hero-2-extended-narrow.jpg" alt="Jason Howell — portrait">
         </div>
       </div>
     </div>
