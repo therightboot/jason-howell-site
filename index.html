@@ -274,7 +274,8 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
 }
 /* Use the extended canvas to match the monochrome head size and eye line. */
 .hero-slide:nth-child(2) .hs-main{
-  top:calc(-21.5% + .75rem); height:146%;
+  top:calc(-20.44% + 1rem); height:142.91%;
+  transform:translateX(-49.34%);
   -webkit-mask-image:linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
           mask-image:linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
 }
@@ -289,7 +290,7 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
 }
 @media (max-width: 900px){
   .hero-slide .hs-main{ top:1.25rem; height:78%; }
-  .hero-slide:nth-child(2) .hs-main{ top:calc(-16% + 1rem); height:114%; }
+  .hero-slide:nth-child(2) .hs-main{ top:calc(-15.94% + 1.25rem); height:111.47%; }
   .hero-slide:nth-child(2) .hs-bg{
     filter:blur(52px) brightness(.78) saturate(0);
     transform:scale(1.26);
@@ -347,6 +348,19 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
   text-transform:uppercase;
   color:var(--gold);
   margin-bottom:1rem;
+}
+.hero-kicker-word{ display:inline; }
+.hero-kicker-separator{ display:inline; }
+@media (orientation:landscape) and (max-width:1180px){
+  .hero-kicker{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.22rem;
+    line-height:1.12;
+  }
+  .hero-kicker-word{ display:block; }
+  .hero-kicker-separator{ display:none; }
 }
 .hero h1{
   font-family:var(--font-display);
@@ -876,7 +890,7 @@ a:focus-visible, button:focus-visible{
   <div class="scrim"></div>
 
   <div class="wrap hero-content">
-    <p class="hero-kicker">Songwriter &middot; Storyteller &middot; Troubadour</p>
+    <p class="hero-kicker"><span class="hero-kicker-word">Songwriter</span><span class="hero-kicker-separator" aria-hidden="true"> &middot; </span><span class="hero-kicker-word">Storyteller</span><span class="hero-kicker-separator" aria-hidden="true"> &middot; </span><span class="hero-kicker-word">Troubadour</span></p>
     <h1>Jason<br>Howell</h1>
     <p class="hero-sub">Songs written on the road, from a lifetime spent making music.</p>
   </div>
