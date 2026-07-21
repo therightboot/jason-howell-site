@@ -273,16 +273,27 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
   pointer-events:none;
 }
 /* Use the extended canvas to match the monochrome head size and eye line. */
-.hero-slide:nth-child(2) .hs-main{ top:calc(-21.5% + 1rem); height:146%; }
+.hero-slide:nth-child(2) .hs-main{
+  top:calc(-21.5% + .75rem); height:146%;
+  -webkit-mask-image:linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+          mask-image:linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+}
+.hero-slide:nth-child(2) .hs-bg{
+  filter:blur(40px) brightness(.58) saturate(0);
+  -webkit-mask-image:none;
+          mask-image:none;
+}
+.legacy-safari .hero-slide:nth-child(2) .hs-main{
+  -webkit-mask-image:none;
+          mask-image:none;
+}
 @media (max-width: 900px){
   .hero-slide .hs-main{ top:1.25rem; height:78%; }
-  .hero-slide:nth-child(2) .hs-main{ top:calc(-16% + 1.25rem); height:114%; }
+  .hero-slide:nth-child(2) .hs-main{ top:calc(-16% + 1rem); height:114%; }
   .hero-slide:nth-child(2) .hs-bg{
     filter:blur(52px) brightness(.78) saturate(0);
     transform:scale(1.26);
     object-position:center 42%;
-    -webkit-mask-image:none;
-            mask-image:none;
   }
   .hero-slide::after{
     content:"";
