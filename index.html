@@ -268,8 +268,8 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
   content:"";
   position:absolute; inset:0; z-index:3;
   background:
-    linear-gradient(to right, #0a0a0a 0%, #0a0a0a 26%, transparent 45%, transparent 55%, #0a0a0a 74%, #0a0a0a 100%),
-    linear-gradient(to bottom, transparent 58%, #0a0a0a 100%);
+    linear-gradient(to right, #0a0a0a 0%, #0a0a0a 20%, rgba(10,10,10,.82) 25%, transparent 43%, transparent 57%, rgba(10,10,10,.82) 75%, #0a0a0a 80%, #0a0a0a 100%),
+    linear-gradient(to bottom, #0a0a0a 0%, rgba(10,10,10,.82) 3%, transparent 14%, transparent 68%, rgba(10,10,10,.38) 82%, #0a0a0a 100%);
   pointer-events:none;
 }
 /* Match the monochrome portrait by measured eye distance and midpoint. */
@@ -351,7 +351,7 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
 }
 .hero-kicker-word{ display:inline; }
 .hero-kicker-separator{ display:inline; }
-@media (orientation:landscape) and (max-width:1180px){
+@media (orientation:landscape){
   .hero-kicker{
     display:flex;
     flex-direction:column;
