@@ -272,12 +272,12 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
     linear-gradient(to bottom, transparent 58%, #0a0a0a 100%);
   pointer-events:none;
 }
-/* Use the extended canvas to match the monochrome head size and eye line. */
+/* Match the monochrome portrait by measured eye distance and midpoint. */
 .hero-slide:nth-child(2) .hs-main{
-  top:calc(-20.44% + 1rem); height:142.91%;
-  transform:translateX(-49.34%);
-  -webkit-mask-image:linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
-          mask-image:linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+  top:calc(-12.92% + 1rem); height:134.63%;
+  transform:translateX(-50.44%);
+  -webkit-mask-image:linear-gradient(to right, transparent, #000 16%, #000 84%, transparent);
+          mask-image:linear-gradient(to right, transparent, #000 16%, #000 84%, transparent);
 }
 .hero-slide:nth-child(2) .hs-bg{
   filter:blur(40px) brightness(.58) saturate(0);
@@ -290,7 +290,7 @@ h2.section-title{ font-size:clamp(2.6rem, 6vw, 4.6rem); margin-top:1rem; }
 }
 @media (max-width: 900px){
   .hero-slide .hs-main{ top:1.25rem; height:78%; }
-  .hero-slide:nth-child(2) .hs-main{ top:calc(-15.94% + 1.25rem); height:111.47%; }
+  .hero-slide:nth-child(2) .hs-main{ top:calc(-10.08% + 1.25rem); height:105.01%; }
   .hero-slide:nth-child(2) .hs-bg{
     filter:blur(52px) brightness(.78) saturate(0);
     transform:scale(1.26);
@@ -881,8 +881,8 @@ a:focus-visible, button:focus-visible{
           <img class="hs-main" src="assets/img/hero-1.jpg" alt="Jason Howell — portrait" fetchpriority="high">
         </div>
         <div class="hero-slide">
-          <img class="hs-bg" src="assets/img/hero-2-extended-narrow.jpg" alt="" aria-hidden="true">
-          <img class="hs-main" src="assets/img/hero-2-extended-narrow.jpg" alt="Jason Howell — portrait">
+          <img class="hs-bg" src="assets/img/hero-2-extended-broad.jpg" alt="" aria-hidden="true">
+          <img class="hs-main" src="assets/img/hero-2-extended-broad.jpg" alt="Jason Howell — portrait">
         </div>
       </div>
     </div>
